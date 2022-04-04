@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Navbar.css">   </link>
+
+  </head>
+  <style>
+     #maindiv {
+        width: 900px;
+        height: 300px;
+        border: 2px solid transparent;
+        margin: 200px 100px 100px 100px;
+        font-style: italic;
+      }
+      .div {
+        border: 2px solid transparent;
+        display: inline-block;
+        width: 380px;
+        height: 200px;
+        float: left;
+        font-style: italic;
+      }
+      .topdiv {
+        border: 2px solid transparent;
+        width: 1200px;
+        height: 90px;
+        font-style: italic;
+      }
+      .input {
+        display: block;
+        margin-top: 20px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-style: italic;
+        outline: none;
+      }
+      .button {
+        background-color: black;
+        width: 250px;
+        height: 25px;
+        color: white;
+        margin-top: 18px;
+        font-style: italic;
+      }
+      .p {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: gray;
+        font-style: italic;
+        font-family: Arial, Helvetica, sans-serif;
+
+      }
+      .search {
+        float: right;
+        font-style: italic;
+        margin-right: 100px;
+      }
+      
+      .p1 {
+        display: inline-block;
+        margin-right: 5px;
+        font-style: italic;
+        font-size: 8px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: gray;
+        font-family: Arial, Helvetica, sans-serif;
+
+        margin-top: 10px;
+      }
+      a:hover{
+        font-size: 8px !important;
+      }
+    
+  </style>
+  <body>
+    <div id="Navbar">
+      <div id="Navbar_box1">
+         <a href="Home.html">Home Page</a>
+       </div>
+       <div id="Search">
+       <a href="Search.html"><input placeholder="enter"/> </a>
+     </div>
+       <div id="Navbar_box2">
+         <a href="signin.html">SignIn</a>
+         <a href="login.html">Login</a>      
+         <a href="Wishlist.html">Wishlist</a>
+         <a href="ReceipeOfTheDay.html">Receipe Of The Day</a>
+         <a href="Latest.html">Latest Receipe</a>  
+       </div>    
+         </div> 
+  
+         <!-- <div class="topdiv">
+          <h1 style="margin-left: 100px; float: left">ZARA</h1>
+          <div class="cart">
+            <p>CART(0)</p>
+            <p>HELP</p>
+          </div>
+          <p class="search">SEARCH</p>
+        </div> -->
+        <div id="maindiv">
+          <div class="div">
+            <h2 >LOG IN</h2>
+            <div style="border: none; border-bottom: black"></div>
+            <input id="email" class="input" type="email" placeholder="E-MAIL" />
+            <input id="password" class="input" type="text" placeholder="PASSWORD" />
+            <a href="signin.html" class="p1">HAVE YOU FORGETTON YOUR PASSWORD?</a>
+
+            <button id="btn" class="button">LOG IN</button>
+          </div>
+
+
+
+          <div style="float: right" class="div">
+            <h2>REGISTER</h2>
+            <p class="p">
+              IF YOU STILL DON'T HAVE A  ACCOUNT, USE THIS OPTION TO ACCESS
+              THE REGISTRATION FORM.
+            </p>
+            <p class="p">
+              BY GIVING US YOUR DETAILS,PURCHASING IN OUR FOOD APP WILL BE FASTER AND
+              AN ENJOYABLE EXPERIENCE.
+            </p>
+            <button style="margin-top: 6px"  id="button" class="button">REGISTER</button>
+          </div>
+        </div>
+
+
+
+    
+    <!-- <h1>login Page</h1> -->
+    <!-- <div id="login">
+    <form action=""></form>
+    <label for="name"></label>
+    <input type="text" id="name" />
+    <label for="email"></label>
+    <input type="text" id="email" />
+</form>
+<button id="btn">click to login</button>
+</div> -->
+  </body>
+</html>
+<script>
+ 
+  var flag = true;
+   document.getElementById("btn").addEventListener("click", login);
+   var check = JSON.parse(localStorage.getItem("signin"));
+   function login(e){
+  //  e.preventDefault();
+  
+   var email = document.getElementById("email").value;
+   console.log(email)
+   var password =  document.getElementById("password").value;
+   console.log(password)
+   for (var i = 0; i < check.length; i++) {
+        if (
+          check[i].email == email &&
+          check[i].password == password
+        ) {
+         
+          //console.log('read');
+          flag = false;
+          window.location.href = "Home.html";
+          // alert("Login Successsfully. Press OK!!");
+        } else {
+         flag = true;
+        }
+      }
+      if(flag == true){
+        alert("WRONG DETAILS")
+      } else if(flag == false){
+        alert(" PRESS! OK TO GO HOME ") 
+      }
+    }
+var btn = document.getElementById("button").addEventListener("click" , open)
+function open (){
+  
+  window.location.href = "signin.html"
+}
+
+</script>
